@@ -1,30 +1,32 @@
-.Container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.root {
   height: 100vh;
 }
 
+.image {
+  background-image: url("https://image.freepik.com/free-photo/overhead-view-baby-s-bib-pacifier-sock-brush-stuffed-pear-toy-peach-background_23-2147900523.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
 .paper {
-  width: 400px;
-}
-
-.Container form {
-  padding: 20px;
+  margin: 20px 10px;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
 }
 
-.app-name {
-  color: #ff6666;
-  margin-top: 10px;
+form {
+  margin: 10px;
+  width: 100%;
 }
 
-.title {
-  color: #666;
-  margin: 15px 0;
-  font-size: 18px;
+.avatar {
+  background: #ff3333;
+  margin: 10px;
+}
+
+.avatar svg {
+  color: #fff;
 }
 
 .error {
@@ -51,5 +53,5 @@
 }
 
 .submit-button {
-  margin-top: 10px;
+  margin: 10px 0 0 0;
 }
