@@ -5,27 +5,29 @@
   height: 100vh;
 }
 
-.Container form {
+.paper {
   width: 400px;
-  background: #fff;
+}
+
+.Container form {
   padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-form h2 {
+.app-name {
   color: #ff6666;
   margin-top: 10px;
 }
 
-form label {
-  color: #999;
+.title {
+  color: #666;
   margin: 15px 0;
   font-size: 18px;
 }
 
-form p {
+.error {
   color: #ff3333;
   margin-bottom: 15px;
   border: 1px solid #ff3333;
@@ -34,41 +36,20 @@ form p {
   text-align: center;
 }
 
-form input {
-  flex: 1;
-  height: 46px;
-  margin-bottom: 15px;
-  padding: 10px 20px;
-  color: #777;
-  font-size: 15px;
-  width: 100%;
-  border: 1px solid #ddd;
-}
-
-form input::placeholder {
-  color: #999;
-}
-
-form button {
-  color: #fff;
-  font-size: 16px;
-  background: #fc6963;
-  height: 56px;
-  width: 100%;
-  border: 0;
-  border-radius: 5px;
-}
-
-form hr {
-  margin: 20px 0;
+.line-divisor {
+  margin: 10px 0;
   border: none;
   border-bottom: 1px solid #cdcdcd;
   width: 100%;
 }
 
-form a {
+.signup-link {
   font-size: 16px;
   font-weight: bold;
-  color: #999;
+  color: #666;
   text-decoration: none;
+}
+
+.submit-button {
+  margin-top: 10px;
 }

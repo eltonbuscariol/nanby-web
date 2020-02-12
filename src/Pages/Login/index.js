@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { APP_NAME } from '../../Constantes';
-
+import Button from '@material-ui/core/Button';
 import './styles.css';
+import TextField from '@material-ui/core/TextField';
+import Paper from '@material-ui/core/Paper';
+import { login } from '../../Services/auth';
 
 class SingIn extends Component {
   state = {
@@ -17,6 +20,7 @@ class SingIn extends Component {
     if (!email || !password) {
       this.setState({ error: 'Preencha e-mail e senha para continuar!' });
     } else {
+      login(email);
       this.props.history.push('/app');
     }
   };
@@ -24,24 +28,42 @@ class SingIn extends Component {
   render() {
     return (
       <div className="Container">
-        <form onSubmit={this.handleSignIn}>
-          {this.state.error && <p>{this.state.error}</p>}
-          <h2>{APP_NAME.toUpperCase()}</h2>
-          <label>Digite suas credenciais</label>
-          <input
-            type="email"
-            placeholder="Endereço de email"
-            onChange={e => this.setState({ email: e.target.value })}
-          />
-          <input
-            type="password"
-            placeholder="Senha"
-            onChange={e => this.setState({ password: e.target.value })}
-          />
-          <button type="submit">Entrar</button>
-          <hr />
-          <Link to="/signup">Criar conta grátis</Link>
-        </form>
+        <Paper className="paper">
+          <form onSubmit={this.handleSignIn}>
+            {this.state.error && <p>{this.state.error}</p>}
+            <h2 className="app-name">{APP_NAME.toUpperCase()}</h2>
+            <label className="title">Digite suas credenciais</label>
+            <TextField
+              type="email"
+              label="Endereço de email"
+              margin="normal"
+              variant="outlined"
+              fullWidth
+              autofocus
+              onChange={e => this.setState({ email: e.target.value })}
+            />
+            <TextField
+              type="password"
+              label="Senha"
+              variant="outlined"
+              fullWidth
+              onChange={e => this.setState({ password: e.target.value })}
+            />
+            <Button
+              type="submit"
+              className="submit-button"
+              variant="contained"
+              color="primary"
+              fullWidth
+            >
+              Entrar
+            </Button>
+            <hr className="line-divisor" />
+            <Link className="signup-link" to="/signup">
+              Criar conta grátis
+            </Link>
+          </form>
+        </Paper>
       </div>
     );
   }
