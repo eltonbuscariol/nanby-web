@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-import { APP_NAME } from "../../Constantes";
 import Button from "@material-ui/core/Button";
 import "./styles.css";
 import TextField from "@material-ui/core/TextField";
 import Paper from "@material-ui/core/Paper";
 import { login } from "../../Services/auth";
-import { Typography, Grid, CssBaseline, Avatar } from "@material-ui/core";
+import { Grid, Avatar } from "@material-ui/core";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Link from "@material-ui/core/Link";
 

@@ -6,6 +6,8 @@ import Divider from "@material-ui/core/Divider";
 import List from "@material-ui/core/List";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
+import { logout } from "../../../Services/auth";
+
 //Ícones
 import ChildCareIcon from "@material-ui/icons/ChildCare";
 import LabelIcon from "@material-ui/icons/Label";
@@ -32,6 +34,10 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+function handleLogout() {
+  logout();
+}
+
 function getIcon(text) {
   switch (text) {
     case "Home":
@@ -55,7 +61,9 @@ export default function MenuDrawer() {
   return (
     <div>
       <div className={classes.toolbar}>
-        <ChildCareIcon fontSize="large" color="primary" />
+        <a href="/" onClick={handleLogout}>
+          <ChildCareIcon fontSize="large" color="primary" />
+        </a>
       </div>
       <Divider />
       <List>
