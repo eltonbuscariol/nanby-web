@@ -4,8 +4,8 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import Divider from "@material-ui/core/Divider";
 import List from "@material-ui/core/List";
+import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
-
 //Ícones
 import ChildCareIcon from "@material-ui/icons/ChildCare";
 import LabelIcon from "@material-ui/icons/Label";
@@ -13,6 +13,14 @@ import BusinessIcon from "@material-ui/icons/Business";
 import AssignmentIndIcon from "@material-ui/icons/AssignmentInd";
 import LocalHospitalIcon from "@material-ui/icons/LocalHospital";
 import HomeIcon from "@material-ui/icons/Home";
+
+const menus = {
+  Home: "/app",
+  Perfil: "/perfil",
+  Filhos: "/filhos",
+  Médicos: "/medicos",
+  Hospital: "/hospital"
+};
 
 const useStyles = makeStyles(theme => ({
   toolbar: {
@@ -51,14 +59,12 @@ export default function MenuDrawer() {
       </div>
       <Divider />
       <List>
-        {["Home", "Seus Dados", "Filhos", "Hospital", "Médicos"].map(
-          (text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{getIcon(text)}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          )
-        )}
+        {Object.keys(menus).map(key => (
+          <ListItem button key={key} component={Link} to={menus[key]}>
+            <ListItemIcon>{getIcon(key)}</ListItemIcon>
+            <ListItemText primary={key} />
+          </ListItem>
+        ))}
       </List>
     </div>
   );
