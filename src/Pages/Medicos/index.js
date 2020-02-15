@@ -1,35 +1,30 @@
 import React, { Component } from "react";
-import {
-  TableContainer,
-  Table,
-  TableBody,
-  TableRow,
-  TableCell
-} from "material-ui";
+import { List, ListItem, ListItemText } from "material-ui";
 
 const medicos = [
   {
-    nome: "Teste",
+    nome: "Testando",
     telefone: "11-99999-0000"
   }
 ];
 class ListaMedicos extends Component {
+  state = {
+    listaMedicos: medicos
+  };
+
   render() {
     return (
-      <>
-        <h4>Médicos Teste</h4>
-        <TableContainer>
-          <Table>
-            <TableBody>
-              {medicos.map(medico => (
-                <TableRow>
-                  <TableCell>{medico.nome}</TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
-      </>
+      <div>
+        <h4>Médicos</h4>
+        <List>
+          {this.state.listaMedicos.map((medico, index) => (
+            <ListItem key={index}>
+              <ListItemText>{medico.nome}</ListItemText>
+              <ListItemText>{medico.telefone}</ListItemText>
+            </ListItem>
+          ))}
+        </List>
+      </div>
     );
   }
 }
