@@ -1,5 +1,5 @@
 import React from "react";
-import ListItem from "@material-ui/core/ListItem";
+import { MenuItem } from "@material-ui/core";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import Divider from "@material-ui/core/Divider";
@@ -55,7 +55,7 @@ function getIcon(text) {
   }
 }
 
-export default function MenuDrawer() {
+export default function MenuDrawer({ drawerToggle }) {
   const classes = useStyles();
 
   return (
@@ -68,10 +68,16 @@ export default function MenuDrawer() {
       <Divider />
       <List>
         {Object.keys(menus).map(key => (
-          <ListItem button key={key} component={Link} to={menus[key]}>
+          <MenuItem
+            button
+            key={key}
+            component={Link}
+            to={menus[key]}
+            onClick={() => drawerToggle()}
+          >
             <ListItemIcon>{getIcon(key)}</ListItemIcon>
             <ListItemText primary={key} />
-          </ListItem>
+          </MenuItem>
         ))}
       </List>
     </div>
